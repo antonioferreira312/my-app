@@ -1,21 +1,16 @@
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from "next/app";
-import Head from "next/head";
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-      </Head>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
 
