@@ -1,5 +1,5 @@
-import Button from "@material-ui/core/Button";
+import React from "react";
 
 export default function Home() {
-  return <div>teste</div>;
+  return <div>t ste</div>;
 }

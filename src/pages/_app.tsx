@@ -3,11 +3,11 @@ import type { AppProps /*, AppContext */ } from "next/app";
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "../styles/theme";
+import { themeOne, themeTwo } from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeOne}>
       <CssBaseline />
       <Component {...pageProps} />
     </ThemeProvider>
