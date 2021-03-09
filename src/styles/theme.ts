@@ -1,44 +1,63 @@
-import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { thema1, thema2 } from './Paleta';
+import blue from '@material-ui/core/colors/blue';
+import { red } from '@material-ui/core/colors';
+import { Color, Theme, ThemeType } from './types';
+
+
+export const THEMES: Record<ThemeType, Theme> = {
+    light: {
+      '--primary': Color.VIOLET,
+      '--secondary': Color.DARK_VIOLET,
+      '--background': Color.LIGHT_GRAY,
+      '--white': Color.WHITE,
+      '--contrastThresHold': 3,
+      '--canalOfSet': 0.2,
+    },
+    dark: {
+      '--primary': Color.VIOLET,
+      '--secondary': Color.WHITE,
+      '--background': Color.DARK_VIOLET,
+      '--white': Color.WHITE,
+      '--contrastThresHold': 3,
+      '--canalOfSet': 0.2,
+    }
+  };
 
 // Create a theme instance.
-export const themeOne = createMuiTheme({
+export const themeOne:Object = createMuiTheme({
   palette: {
     primary: {
-      main: thema1.primary,
+      main:THEMES.light["--primary"],
     },
     secondary: {
-      main: thema1.primary,
+      main:THEMES.light["--secondary"],
     },
     error: {
-      main: red.A400,
+      main: red[500],
     },
     background: {
-      default:thema1.background,
+      default:THEMES.light["--background"],
     },
-    contrastThreshold: thema1.contrastThresHold,
-    tonalOffset: thema1.canalOfSet,
+    contrastThreshold:THEMES.light["--contrastThresHold"],
+    tonalOffset: THEMES.light["--canalOfSet"]
   },
 });
 // Create a theme instance.
-export const themeTwo = createMuiTheme({
+export const themeTwo:Object = createMuiTheme({
   palette: {
     primary: {
-      main: thema2.primary,
+      main:THEMES.dark["--primary"],
     },
     secondary: {
-      main: thema2.primary,
+      main: THEMES.dark["--secondary"],
     },
     error: {
-      main: red.A400,
+      main: red[500],
     },
     background: {
-      default:thema2.background,
+      default:THEMES.dark["--background"],
     },
-    contrastThreshold: thema2.contrastThresHold,
-    tonalOffset: thema2.canalOfSet,
+    contrastThreshold: THEMES.dark["--contrastThresHold"],
+    tonalOffset:THEMES.dark["--canalOfSet"],
   },
 });
-
-

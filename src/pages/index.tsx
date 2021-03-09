@@ -1,8 +1,8 @@
 import { Button, Container, Grid } from "@material-ui/core";
-import { useStyles } from "../styles/myStyles";
+import React from "react";
+import ButtonSetColor from "../components/ButtonSetColor";
 
 export default function Home() {
-  const myStyles = useStyles();
   return (
     <Grid
       direction="column"
@@ -12,22 +12,8 @@ export default function Home() {
       container
       spacing={1}
     >
-      <Grid item lg>
-        <span>
-          <b>Count: </b>0
-        </span>
-      </Grid>
-
-      <Grid item sm>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          className={myStyles.button}
-        >
-          increment
-        </Button>
-      </Grid>
+      <ButtonSetColor colorSet="dark" value="Night" />
+      <ButtonSetColor colorSet="light" value="Day" />
     </Grid>
   );
 }
