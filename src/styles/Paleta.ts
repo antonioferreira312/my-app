@@ -7,9 +7,9 @@ interface Themmes{
 }
 
 export const thema1:Themmes = {
-    primary:"#E530FF",
+    primary:"#403C34",
     secondary:"#30FF4B",
-    background:"#ffff10",
+    background:"#A4A698",
     contrastThresHold:3,
     canalOfSet:0.2
 }
