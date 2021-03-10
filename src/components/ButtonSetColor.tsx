@@ -1,5 +1,4 @@
-import { Button, Container, Grid } from "@material-ui/core";
-import { useStyles } from "../styles/myStyles";
+import { Button, Grid } from "@material-ui/core";
 import { useTheme } from "../context/themeContext";
 
 interface Iprops {

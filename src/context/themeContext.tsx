@@ -1,7 +1,6 @@
 import { ThemeProvider } from "@material-ui/core";
 import React, { Dispatch, SetStateAction } from "react";
-import { THEMES, themeOne, themeTwo } from "../styles/theme";
-import { Theme, ThemeType } from "../styles/types";
+import { themeOne, themeTwo } from "../styles/theme";
 
 interface ThemeContextProps {
   themeType: string;
