@@ -1,5 +1,5 @@
 import { Button, Grid } from "@material-ui/core";
-import { useTheme } from "../context/themeContext";
+import { useTheme } from "../providers/themeContext";
 
 interface Iprops {
   colorSet: string;

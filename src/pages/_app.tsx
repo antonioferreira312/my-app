@@ -2,7 +2,7 @@
 import type { AppProps /*, AppContext */ } from "next/app";
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { MyThemeProvider } from "../context/themeContext";
+import { MyThemeProvider } from "../providers/themeContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
