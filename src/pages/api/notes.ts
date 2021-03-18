@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     switch (method) {
         case "GET":
             try {
-                NoteModel.find().then(( posts: INote[] ) => {
+                NoteModel.find().then((posts: INote[]) => {
                     res.status(200).json({ success: true, data: posts });
                 }).catch(e => {
                     res.status(400).json({ success: false });
@@ -22,14 +22,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         case "POST":
             try {
                 const createdNote: INote = new NoteModel(req.body);
-                createdNote.save().then( (savedPost: any) => {
+                createdNote.save().then((savedPost: any) => {
                     res.status(200).json({ success: true, data: savedPost });
                 }).catch(e => {
                     res.status(400).json({ success: false });
                 })
             } catch (ERROR) {
                 res.status(400).json({ success: false });
-            }  
+            }
             break;
     };
 };
