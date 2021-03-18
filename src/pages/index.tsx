@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <Grid
       direction="column"
-      justify="space-between"
       alignItems="center"
       alignContent="center"
       container
