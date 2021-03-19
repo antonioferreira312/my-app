@@ -1,131 +1,130 @@
-import React from "react";
-import clsx from "clsx";
+import React from 'react';
+import clsx from 'clsx';
 import {
-  AppBar,
-  useTheme,
-  Drawer,
-  Toolbar,
-  List,
-  CssBaseline,
-  Typography,
-  Divider,
-  IconButton,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import { myUseStyles } from "./myUseStyles";
-import Switch from "@material-ui/core/Switch";
-import { setMyTheme } from "@providers/themeContext";
+	AppBar,
+	useTheme,
+	Drawer,
+	Toolbar,
+	List,
+	Typography,
+	Divider,
+	IconButton,
+	ListItem,
+	ListItemIcon,
+	ListItemText,
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
+import { myUseStyles } from './myUseStyles';
+import Switch from '@material-ui/core/Switch';
+import { setMyTheme } from '@providers/themeContext';
 
-export default function Layout() {
-  const { themeCurrent, setCurrentTheme } = setMyTheme();
+export default function Layout(): JSX.Element{
+	const { themeCurrent, setCurrentTheme } = setMyTheme();
 
-  const classes = myUseStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+	const classes = myUseStyles();
+	const theme = useTheme();
+	const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+	const handleDrawerOpen = () => {
+		setOpen(true);
+	};
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+	const handleDrawerClose = () => {
+		setOpen(false);
+	};
 
-  return (
-    <div className={classes.root}>
-      <AppBar
-        color="primary"
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="secondary"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon style={{ fontSize: 30 }} />
-          </IconButton>
-          <Typography variant="h6" className={classes.content} noWrap>
+	return (
+		<div className={classes.root}>
+			<AppBar
+				color="primary"
+				position="fixed"
+				className={clsx(classes.appBar, {
+					[classes.appBarShift]: open,
+				})}
+			>
+				<Toolbar>
+					<IconButton
+						color="secondary"
+						aria-label="open drawer"
+						onClick={handleDrawerOpen}
+						edge="start"
+						className={clsx(classes.menuButton, {
+							[classes.hide]: open,
+						})}
+					>
+						<MenuIcon style={{ fontSize: 30 }} />
+					</IconButton>
+					<Typography variant="h6" className={classes.content} noWrap>
             Notes
-          </Typography>
-          <Switch
-            inputProps={{ "aria-label": "primary checkbox" }}
-            onChange={() => {
-              setCurrentTheme(!themeCurrent);
-            }}
-          />
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton color="secondary" onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <InboxIcon color="secondary" />
-                ) : (
-                  <MailIcon color="secondary" />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <InboxIcon color="secondary" />
-                ) : (
-                  <MailIcon color="secondary" />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph>
+					</Typography>
+					<Switch
+						inputProps={{ 'aria-label': 'primary checkbox' }}
+						onChange={() => {
+							setCurrentTheme(!themeCurrent);
+						}}
+					/>
+				</Toolbar>
+			</AppBar>
+			<Drawer
+				variant="permanent"
+				className={clsx(classes.drawer, {
+					[classes.drawerOpen]: open,
+					[classes.drawerClose]: !open,
+				})}
+				classes={{
+					paper: clsx({
+						[classes.drawerOpen]: open,
+						[classes.drawerClose]: !open,
+					}),
+				}}
+			>
+				<div className={classes.toolbar}>
+					<IconButton color="secondary" onClick={handleDrawerClose}>
+						{theme.direction === 'rtl' ? (
+							<ChevronRightIcon />
+						) : (
+							<ChevronLeftIcon />
+						)}
+					</IconButton>
+				</div>
+				<Divider />
+				<List>
+					{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+						<ListItem button key={text}>
+							<ListItemIcon>
+								{index % 2 === 0 ? (
+									<InboxIcon color="secondary" />
+								) : (
+									<MailIcon color="secondary" />
+								)}
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItem>
+					))}
+				</List>
+				<Divider />
+				<List>
+					{['All mail', 'Trash', 'Spam'].map((text, index) => (
+						<ListItem button key={text}>
+							<ListItemIcon>
+								{index % 2 === 0 ? (
+									<InboxIcon color="secondary" />
+								) : (
+									<MailIcon color="secondary" />
+								)}
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItem>
+					))}
+				</List>
+			</Drawer>
+			<main className={classes.content}>
+				<div className={classes.toolbar} />
+				<Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
           dolor purus non enim praesent elementum facilisis leo vel. Risus at
@@ -139,8 +138,8 @@ export default function Layout() {
           vivamus at augue. At augue eget arcu dictum varius duis at consectetur
           lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
           faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
+				</Typography>
+				<Typography paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
           ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
           elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
@@ -153,8 +152,8 @@ export default function Layout() {
           sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </main>
-    </div>
-  );
+				</Typography>
+			</main>
+		</div>
+	);
 }
