@@ -1,28 +1,28 @@
 import { ThemeProvider } from "@material-ui/core";
 import React, { Dispatch, SetStateAction } from "react";
-import { themeOne, themeTwo } from "../styles/theme";
+import { themePrimary, themeSecondary } from "../styles/theme";
 
 interface ThemeContextProps {
-  themeType: string;
-  setCurrentTheme: Dispatch<SetStateAction<string>>;
+  themeCurrent: boolean;
+  setCurrentTheme: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ThemeContext = React.createContext<ThemeContextProps>({
-  themeType: "light",
+  themeCurrent: true,
 } as ThemeContextProps);
 
 export const MyThemeProvider: React.FC = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = React.useState<string>("light");
+  const [currentTheme, setCurrentTheme] = React.useState<boolean>(true);
   let theme: Object;
-  if (currentTheme === "light") {
-    theme = themeOne;
+  if (currentTheme === true) {
+    theme = themePrimary;
   } else {
-    theme = themeTwo;
+    theme = themeSecondary;
   }
   return (
     <ThemeContext.Provider
       value={{
-        themeType: currentTheme,
+        themeCurrent: currentTheme,
         setCurrentTheme,
       }}
     >
@@ -31,4 +31,4 @@ export const MyThemeProvider: React.FC = ({ children }) => {
   );
 };
 
-export const useTheme = () => React.useContext(ThemeContext);
+export const setMyTheme = () => React.useContext(ThemeContext);

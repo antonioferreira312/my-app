@@ -1,18 +1,10 @@
-import { Grid } from "@material-ui/core";
+import { Container, Grid, makeStyles, Paper } from "@material-ui/core";
+import { red } from "@material-ui/core/colors";
 import React from "react";
-import ButtonSetColor from "../components/ButtonSetColor";
+import Layout from "@components/Layout";
 
 export default function Home() {
   return (
-    <Grid
-      direction="column"
-      alignItems="center"
-      alignContent="center"
-      container
-      spacing={1}
-    >
-      <ButtonSetColor colorSet="dark" value="Night" />
-      <ButtonSetColor colorSet="light" value="Day" />
-    </Grid>
+    <Layout />
   );
 }

@@ -8,7 +8,7 @@ const NoteSchema: Schema = new Schema(
             required: [true, "Titulo requerido"],
             unique: true,
             trim: true,
-            maxLength: [40, "Titulo aceita até 40 caracteres"]
+            maxLength: [40, "Título aceita até 40 caracteres"]
         },
         description: {
             type: String,
@@ -24,4 +24,3 @@ const NoteSchema: Schema = new Schema(
     
 const NoteModel = models.Note || mongoose.model<INote>("Note", NoteSchema);
 export default NoteModel;
-
