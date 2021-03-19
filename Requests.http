@@ -1,0 +1,15 @@
+GET https://boilerplate-material-type-antoniojr.vercel.app/api/notes HTTP/1.1
+
+###
+
+POST https://boilerplate-material-type-antoniojr.vercel.app/api/notes HTTP/1.1
+content-type: application/json
+
+{
+	"title": "Meu Titulo2",
+	"description": "Minha descrição"
+}
+
+###
+// ALL POSTS DELETE
+GET https://boilerplate-material-type-antoniojr.vercel.app/api/deleteall HTTP/1.1
