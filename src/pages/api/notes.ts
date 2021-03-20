@@ -1,4 +1,6 @@
-import dbConnect from '@/utis/dbConnect';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import dbConnect from '@/utils/dbConnect';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NoteModel from '@/models/Note';
 import INote from '@/interfaces/INote';
@@ -12,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		try {
 			NoteModel.find().then((posts: INote[]) => {
 				res.status(200).json({ success: true, data: posts });
-			}).catch(e => {
+			}).catch(() => {
 				res.status(400).json({ success: false });
 			});
 		} catch (ERROR) {
@@ -24,7 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			const createdNote: INote = new NoteModel(req.body);
 			createdNote.save().then((savedPost: any) => {
 				res.status(200).json({ success: true, data: savedPost });
-			}).catch(e => {
+			}).catch(() => {
 				res.status(400).json({ success: false });
 			});
 		} catch (ERROR) {

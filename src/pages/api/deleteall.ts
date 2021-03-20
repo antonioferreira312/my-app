@@ -1,4 +1,5 @@
-import dbConnect from '@/utis/dbConnect';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import dbConnect from '@/utils/dbConnect';
 import Note from '@/models/Note';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NoteModel from '@/models/Note';
