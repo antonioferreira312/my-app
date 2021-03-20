@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose from 'mongoose';
 
 const uri: string = process.env.MONGODB_URI || '';
 const dbName: string = process.env.MONGODB_DB || '';
 
-const connection : any = {};
+const connection: any  = {};
 
 if (!uri) {
 	throw new Error(
