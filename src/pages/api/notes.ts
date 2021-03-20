@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import dbConnect from '@/utis/dbConnect';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NoteModel from '@/models/Note';
